@@ -11,7 +11,7 @@
     d:DataContext="{d:DesignInstance local:SettingsPage,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignWidth="1000"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -24,7 +24,7 @@
         <TextBlock
             FontSize="20"
             FontWeight="Medium"
-            Text="设置" />
+            Text="设置：" />
         <TextBlock Margin="0,12,0,0" Text="主题" />
         <RadioButton
             Margin="0,12,0,0"
@@ -41,10 +41,45 @@
             GroupName="themeSelect"
             IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}" />
         <TextBlock Margin="0,12,0,0" Text="第五人格游戏路径（设置后请先重启应用程序）" />
-        <TextBox
-      Margin="0,8,0,0"
-      Text="{Binding ViewModel.GamePath, Mode=TwoWay}" />
-        <Button Command="{Binding ViewModel.OpenFileSelsctCommand, Mode=OneWay}">选择文件夹</Button>
-
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox MinWidth="300" Grid.Column="0"
+Margin="0,8,0,0"
+Text="{Binding ViewModel.GamePath, Mode=TwoWay}" />
+            <Button Grid.Column="1" Command="{Binding ViewModel.OpenFileSelsctCommand, Mode=OneWay}" Margin="20,0,0,0">选择文件夹</Button>
+        </Grid>
+        
+        <TextBlock
+            FontSize="20"
+            FontWeight="Medium"
+            Text="关于：" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ui:Button Click="Button_Click" >
+                <ui:Image  Grid.Column="0" Source="pack://application:,,,/Assets/user.png" Width="180" Height="100"></ui:Image>
+            </ui:Button>
+            <ui:Button Grid.Column="1" Click="Button_Click_1" Margin="5,0,0,0">
+                <ui:Image  Source="pack://application:,,,/Assets/CSharp.png" Width="180" Height="100"></ui:Image>
+            </ui:Button>
+            <ui:Button Grid.Column="2"  Click="Button_Click_2" Margin="5,0,0,0">
+                <ui:Image Source="pack://application:,,,/Assets/VisualStudio.png" Width="180" Height="100"></ui:Image>
+            </ui:Button>
+            <ui:Button Grid.Column="3"  Click="Button_Click_4"  Margin="5,0,0,0">
+                <ui:Image Source="pack://application:,,,/Assets/Bwiki.png" Width="180" Height="100"></ui:Image>
+            </ui:Button>
+            <ui:Button Click="Button_Click_3" Height="112" Width="105" Grid.Column="4" Margin="5,0,0,0">
+                <ui:TextBlock FontSize="45">MIT</ui:TextBlock>
+            </ui:Button>
+        </Grid>
+        <ui:TextBlock FontSize="15" Text="              作者：罗澜                               编程语言:C#                        IDE:VisualStudio              合作伙伴:第五人格BWiki        开源协议:MIT"></ui:TextBlock>
     </StackPanel>
 </Page>

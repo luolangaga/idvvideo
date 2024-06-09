@@ -4,15 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>wpfui-icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="wpfui-icon.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AdvancedSharpAdbClient" Version="3.3.12" />
@@ -22,17 +18,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Bwiki.png" />
+    <None Remove="Assets\CSharp.png" />
+    <None Remove="Assets\iconpng.png" />
     <None Remove="Assets\pack_img.jpg" />
+    <None Remove="Assets\user.png" />
     <None Remove="Assets\video_img.jpg" />
+    <None Remove="Assets\VisualStudio.png" />
     <None Remove="Assets\wpfui-icon-256.png" />
     <None Remove="Assets\wpfui-icon-1024.png" />
+    <None Remove="icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Bwiki.png" />
+    <Resource Include="Assets\CSharp.png" />
+    <Resource Include="Assets\iconpng.png" />
     <Resource Include="Assets\pack_img.jpg" />
+    <Resource Include="Assets\user.png" />
     <Resource Include="Assets\video_img.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\VisualStudio.png" />
     <Resource Include="Assets\wpfui-icon-256.png" />
     <Resource Include="Assets\wpfui-icon-1024.png" />
   </ItemGroup>

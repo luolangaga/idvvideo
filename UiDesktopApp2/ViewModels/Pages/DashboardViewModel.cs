@@ -117,9 +117,18 @@ namespace UiDesktopApp2.ViewModels.Pages
         [RelayCommand]
         private void OnRestart()
         {
-
             try
             {
+                Game_User = Get_userid();
+            }
+            catch (Exception)
+            {
+
+              
+            }
+            try
+            {
+              
                 var data = new List<DataColor>();
                 var Game_User = GetFoldersWithLastWriteTime($"{File.ReadAllText("GamePath.txt")}\\Documents\\video\\{User_id}\\");
                 foreach (var (Name, LastWriteTime) in Game_User)
@@ -128,17 +137,12 @@ namespace UiDesktopApp2.ViewModels.Pages
 
                 }
                Colors = data;
+
             }
             catch (Exception)
             {
-                if (User_id=="000")
-                {
-                    Showinf("错误", "请先选择游戏id", "确定");
-                }
-                else
-                {
-                    Showinf("错误", "未找到录像文件夹", "确定");
-                }
+              
+                  
 
             }
             

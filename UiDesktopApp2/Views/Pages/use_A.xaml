@@ -42,7 +42,7 @@
             <ComboBox  SelectionChanged="idv_server_SelectionChanged" x:Name="idv_server" >
             </ComboBox>
             <TextBlock>输入你的第五人格ID：</TextBlock>
-            <ui:TextBox x:Name="idv_id" ></ui:TextBox>
+            <ui:TextBox x:Name="idv_id" Margin="0,15,0,15" ></ui:TextBox>
             <Button Click="Button_Click_1">使用该录像夹</Button>
         </StackPanel>
     </Grid>

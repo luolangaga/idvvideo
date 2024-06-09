@@ -20,7 +20,7 @@ namespace UiDesktopApp2.ViewModels.Windows
             new NavigationViewItem()
             {
                 Content = "录像夹",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.VehicleCarProfileLtr24 },
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Folder24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
             }
         };

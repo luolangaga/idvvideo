@@ -21,6 +21,7 @@
     <Grid VerticalAlignment="Top">
        
         <Grid.RowDefinitions>
+           
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -68,7 +69,7 @@ VirtualizingPanel.CacheLengthUnit="Item">
             <ui:Button  Content="删除" Command="{Binding ViewModel.Delect_videoCommand}" Grid.Column="4" Margin="3,0,3,0"></ui:Button>
             <ui:Button  Content="新建录像夹" Command="{Binding ViewModel.Build_vfolderCommand}" Grid.Column="5" Margin="3,0,3,0"></ui:Button>
             <ui:Button  Content="{Binding ViewModel.Allcheck_text}" Command="{Binding ViewModel.check_allCommand}" Grid.Column="6" Margin="3,0,3,0"></ui:Button>
-
+            <ui:InfoBar Height="48" Grid.ColumnSpan="9" Margin="0,0,-300,0">这是一个测试版本</ui:InfoBar>
             <ui:ProgressRing  IsIndeterminate="True" Visibility="{Binding ViewModel.Isload}" Grid.Column="7" HorizontalAlignment="Right"></ui:ProgressRing>
 
         </Grid>

@@ -1,11 +1,12 @@
-﻿using UiDesktopApp2.ViewModels.Windows;
+﻿
+using UiDesktopApp2.ViewModels.Windows;
 using Wpf.Ui;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
 namespace UiDesktopApp2.Views.Windows
 {
-    public partial class MainWindow : INavigationWindow
+    public partial class MainWindow :  INavigationWindow
     {
         public MainWindowViewModel ViewModel { get; }
 
@@ -51,10 +52,10 @@ namespace UiDesktopApp2.Views.Windows
             Application.Current.Shutdown();
         }
 
-        INavigationView INavigationWindow.GetNavigation()
-        {
-            throw new NotImplementedException();
-        }
+     //   INavigationView INavigationWindow.GetNavigation()
+     //   {
+      //      throw new NotImplementedException();
+ //       }
 
         public void SetServiceProvider(IServiceProvider serviceProvider)
         {
