@@ -1,0 +1,49 @@
+﻿<Page x:Class="UiDesktopApp2.Views.Pages.Upload_A"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UiDesktopApp2.Views.Pages"
+      mc:Ignorable="d" 
+          d:DataContext="{d:DesignInstance local:DashboardPage,
+                                     IsDesignTimeCreatable=False}"
+       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+  
+      d:DesignHeight="450" d:DesignWidth="800"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+  ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+   
+      Title="Upload_A">
+    <Grid>
+        <StackPanel  x:Name="panel1">
+            <TextBlock FontSize="30" Margin="15,0,0,0">请选择设备：</TextBlock>
+           <Button FontSize="40" Click="Button_Click"  HorizontalAlignment="Right" Margin="0,0,30,0">连接！</Button>
+
+           
+                <ListBox x:Name="allphone">
+                <ListBoxItem>
+                    正在搜索设备...
+                </ListBoxItem>
+                <ListBoxItem>
+                    正在搜索设备...
+                </ListBoxItem>
+                <ListBoxItem>
+                    正在搜索设备...
+                </ListBoxItem>
+            </ListBox>
+        
+          
+        </StackPanel>
+
+        <StackPanel x:Name="panel2"  Visibility="Hidden">
+            <TextBlock >选择你的第五人格服务器：</TextBlock>
+            <ui:ProgressRing x:Name="progress"  Visibility="Hidden"  IsIndeterminate="True"  Grid.Column="6" HorizontalAlignment="Right"></ui:ProgressRing>
+
+            <ComboBox  SelectionChanged="idv_server_SelectionChanged" x:Name="idv_server" >
+            </ComboBox>
+            <TextBlock>输入你的第五人格ID：</TextBlock>
+            <ui:TextBox x:Name="idv_id" ></ui:TextBox>
+            <Button Click="Button_Click_1">导入录像为一个录像夹</Button>
+        </StackPanel>
+    </Grid>
+</Page>
