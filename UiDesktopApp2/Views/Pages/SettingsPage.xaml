@@ -53,10 +53,11 @@ Text="{Binding ViewModel.GamePath, Mode=TwoWay}" />
         </Grid>
         
         <TextBlock
+            x:Name="about_text"
             FontSize="20"
             FontWeight="Medium"
             Text="关于：" />
-        <Grid>
+        <Grid x:Name="about">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />

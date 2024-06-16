@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiDesktopApp2", "UiDesktopApp2\UiDesktopApp2.csproj", "{F993732A-84EE-454D-A341-7AC3A85B5DFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiDesktopApp2", "UiDesktopApp2\UiDesktopApp2.csproj", "{F993732A-84EE-454D-A341-7AC3A85B5DFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "idvvideo_api", "idvvideo_api\idvvideo_api.csproj", "{159DA199-B0BE-4DE9-A5E4-DDB4303BFD69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F993732A-84EE-454D-A341-7AC3A85B5DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F993732A-84EE-454D-A341-7AC3A85B5DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F993732A-84EE-454D-A341-7AC3A85B5DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{159DA199-B0BE-4DE9-A5E4-DDB4303BFD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159DA199-B0BE-4DE9-A5E4-DDB4303BFD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159DA199-B0BE-4DE9-A5E4-DDB4303BFD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159DA199-B0BE-4DE9-A5E4-DDB4303BFD69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

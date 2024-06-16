@@ -17,14 +17,15 @@
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     mc:Ignorable="d">
-   
-    <Grid VerticalAlignment="Top">
+    <Grid>
+         <Grid VerticalAlignment="Top">
        
         <Grid.RowDefinitions>
            
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+       
         <StackPanel Grid.Row="1">
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="403"  >
                 <ui:VirtualizingItemsControl  Margin="3,10,3,0" 
@@ -74,4 +75,6 @@ VirtualizingPanel.CacheLengthUnit="Item">
 
         </Grid>
        </Grid>
+    </Grid>
+  
 </Page>

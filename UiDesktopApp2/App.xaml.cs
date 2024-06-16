@@ -70,6 +70,8 @@ namespace UiDesktopApp2
         /// </summary>
         private void OnStartup(object sender, StartupEventArgs e)
         {
+
+          
             _host.Start();
         }
 

@@ -33,7 +33,8 @@ public partial class Upload_A : Page
         List<_server> servers = new List<_server>(new[] {
             new _server { Nmae = "网易官服", PackName = "com.netease.dwrg" },
             new _server { Nmae = "VIVO服", PackName = "com.netease.dwrg5.vivo" },
-            new _server {PackName = "com.netease.idv.googleplay",Nmae = "亚服"}
+            new _server {PackName = "com.netease.idv.googleplay",Nmae = "亚服"},
+            new _server {PackName = "com.netease.dwrg.mi",Nmae = "米服"}
         });
         class _server
         {

@@ -1,0 +1,32 @@
+﻿<ui:FluentWindow x:Class="UiDesktopApp2.Views.Windows.Download"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+  ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+ 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UiDesktopApp2.Views.Windows"
+        mc:Ignorable="d"
+        Title="Download" Height="285" Width="570">
+    <Grid>
+ 
+        <StackPanel>
+            <ui:TitleBar
+    x:Name="TitleBar"
+    Title="{Binding ViewModel.ApplicationTitle}"
+    Grid.Row="0"
+    CloseWindowByDoubleClickOnIcon="True">
+                <ui:TitleBar.Icon>
+                    <ui:ImageIcon Source="pack://application:,,,/Assets/iconpng.png" />
+                </ui:TitleBar.Icon>
+            </ui:TitleBar>
+            <ui:TextBlock FontSize="45">下载:</ui:TextBlock>
+            <ui:TextBlock x:Name="download_mt" FontSize="20" Margin="20,0,0,0">正在下载：</ui:TextBlock>
+            <ProgressBar  x:Name="processp" Margin="15,20,15,0"></ProgressBar>
+            <TextBlock x:Name="spendtext" FontSize="20">速度</TextBlock>
+            <TextBlock x:Name="procresstext" FontSize="20">进度</TextBlock>
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>

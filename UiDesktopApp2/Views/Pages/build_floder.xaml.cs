@@ -115,13 +115,14 @@ text.Text = "新建录像包";
                     Directory.CreateDirectory(packFolderPath);
                 }
 
-                // 生成随机的GUID作为文件名
-                string guidFileName =  $"{flodername.Text}.idvpack";
-                // 压缩后ZIP文件的完整路径
-                string zipFilePath = Path.Combine(packFolderPath, guidFileName);
-
+             
                 try
                 {
+                    // 生成随机的GUID作为文件名
+                    string guidFileName = $"{flodername.Text}.idvpack";
+                    // 压缩后ZIP文件的完整路径
+                    string zipFilePath = Path.Combine(packFolderPath, guidFileName);
+
                     using (var zipArchive = ZipFile.Open(zipFilePath, ZipArchiveMode.Create))
                     {
                         foreach (var sourceDirectory in foldersToCompress)

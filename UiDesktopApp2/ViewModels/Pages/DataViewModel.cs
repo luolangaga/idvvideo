@@ -1,7 +1,11 @@
-﻿using Microsoft.Win32;
+﻿using Flurl.Http;
+using Microsoft.Win32;
 using System.IO;
 using System.IO.Compression;
 using System.Security.Policy;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Windows.Controls;
 using System.Windows.Media;
 using UiDesktopApp2.Models;
 using UiDesktopApp2.Views.Pages;
@@ -21,7 +25,7 @@ namespace UiDesktopApp2.ViewModels.Pages
         private bool _isInitialized = false;
 
         [ObservableProperty]
-        private IEnumerable<DataVideo> _Allvideo;
+        public static IEnumerable<DataVideo> _Allvideo;
         [ObservableProperty]
         private string _allcheck_text="全选";
 
@@ -43,6 +47,8 @@ namespace UiDesktopApp2.ViewModels.Pages
         {
             try
             {
+
+             
                 //如果目标路径不存在,则创建目标路径
                 if (!System.IO.Directory.Exists(destFolder))
                 {
@@ -183,6 +189,26 @@ namespace UiDesktopApp2.ViewModels.Pages
             }
 
         }
+
+      
+
+        [RelayCommand]
+        private async void share_video()
+        {
+            try
+            {
+                 ShareV s= new ShareV();
+                Showinf("分享", s, "确定");
+            }
+            catch (Exception ex)
+            {
+                Showinf("失败", $"失败！\r\n原因：{ex.Message}", "确定");
+
+            }
+
+        }
+
+
 
 
         [RelayCommand]

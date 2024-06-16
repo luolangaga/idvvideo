@@ -52,10 +52,10 @@ namespace UiDesktopApp2.Views.Windows
             Application.Current.Shutdown();
         }
 
-     //   INavigationView INavigationWindow.GetNavigation()
-     //   {
-      //      throw new NotImplementedException();
- //       }
+        INavigationView INavigationWindow.GetNavigation()
+        {
+            throw new NotImplementedException();
+        }
 
         public void SetServiceProvider(IServiceProvider serviceProvider)
         {

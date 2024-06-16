@@ -8,12 +8,17 @@ namespace UiDesktopApp2.Views.Pages
     {
         public SettingsViewModel ViewModel { get; }
 
-        public SettingsPage(SettingsViewModel viewModel)
+        public SettingsPage(SettingsViewModel viewModel,bool showabout=true)
         {
             ViewModel = viewModel;
             DataContext = this;
 
             InitializeComponent();
+            if (!showabout)
+            {
+                about.Visibility = Visibility.Hidden;
+                about_text.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
