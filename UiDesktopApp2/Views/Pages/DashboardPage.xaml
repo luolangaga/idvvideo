@@ -25,29 +25,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-       
-        <StackPanel Grid.Row="1">
-            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="403"  >
-                <ui:VirtualizingItemsControl  Margin="3,10,3,0" 
+      
+                    <ui:Image Grid.Row="1" Visibility="{Binding ViewModel.Isnull,Mode=TwoWay}" Height="200" Width="200" Source="pack://application:,,,/Assets/Novideo.png"></ui:Image>
+                    <StackPanel Grid.Row="1" >
+                        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="403"  >
+                            <ui:VirtualizingItemsControl  Margin="3,10,3,0" 
 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
 ItemsSource="{Binding ViewModel.Colors, Mode=TwoWay}"
 VirtualizingPanel.CacheLengthUnit="Item">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type models:DataColor}">
-                            <ui:Card>
-                                <StackPanel>
-                                    <Image Width="150" Height="100"  Source="pack://application:,,,/Assets/video_img.jpg">
-                                    </Image>
-                                    <TextBlock  Text="{Binding time}" HorizontalAlignment="Right"></TextBlock>
-                                    <CheckBox    IsChecked="{Binding ischeck,Mode=TwoWay}" Name="check" Tag="{Binding path}" Click="CheckBox_Click">选择</CheckBox>
-                                </StackPanel>
-                            </ui:Card>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ui:VirtualizingItemsControl>
-            </ScrollViewer>
-        </StackPanel>
-       
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type models:DataColor}">
+                                        <ui:Card>
+                                            <StackPanel>
+                                                <Image Width="150" Height="100"  Source="pack://application:,,,/Assets/video_img.jpg">
+                                                </Image>
+                                                <TextBlock  Text="{Binding time}" HorizontalAlignment="Right"></TextBlock>
+                                                <CheckBox    IsChecked="{Binding ischeck,Mode=TwoWay}" Name="check" Tag="{Binding path}" Click="CheckBox_Click">选择</CheckBox>
+                                            </StackPanel>
+                                        </ui:Card>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ui:VirtualizingItemsControl>
+                        </ScrollViewer>
+                    </StackPanel>
+
+              
+           
 
         
           
@@ -64,7 +67,7 @@ VirtualizingPanel.CacheLengthUnit="Item">
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <ComboBox Text="{Binding ViewModel.User_id}" Margin="3,0,3,0"  ItemsSource="{Binding ViewModel.Game_User}" Grid.Column="0" Width="120"/>
+            <ComboBox   Text="{Binding ViewModel.User_id}" Margin="3,0,3,0"  ItemsSource="{Binding ViewModel.Game_User}" Grid.Column="0" Width="120"/>
             <ui:Button Content="刷新" Command="{Binding ViewModel.RestartCommand, Mode=OneWay}" Grid.Column="2" Margin="3,0,3,0"></ui:Button>
             <ui:Button  Content="打包" Command="{Binding ViewModel.BuildpackCommand,Mode=OneWay}" Grid.Column="3" Margin="3,0,3,0"></ui:Button>
             <ui:Button  Content="删除" Command="{Binding ViewModel.Delect_videoCommand}" Grid.Column="4" Margin="3,0,3,0"></ui:Button>

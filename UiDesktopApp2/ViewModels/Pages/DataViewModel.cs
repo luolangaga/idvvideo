@@ -319,6 +319,8 @@ namespace UiDesktopApp2.ViewModels.Pages
 
         }
 
+        [ObservableProperty]
+        private Visibility _isnull = Visibility.Visible;
 
         [RelayCommand]
         private async void check_video()
@@ -392,7 +394,14 @@ namespace UiDesktopApp2.ViewModels.Pages
 
             }
             Allvideo = colorCollection;
-
+            if (colorCollection.Count() == 0)
+            {
+                Isnull = Visibility.Visible;
+            }
+            else
+            {
+                Isnull = Visibility.Hidden;
+            }
             _isInitialized = true;
         }
     }

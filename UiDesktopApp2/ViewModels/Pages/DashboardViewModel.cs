@@ -33,6 +33,9 @@ namespace UiDesktopApp2.ViewModels.Pages
         [ObservableProperty]
         private Visibility _isload = Visibility.Hidden;
         [ObservableProperty]
+        private Visibility _isnull = Visibility.Visible;
+
+        [ObservableProperty]
         public static string _User_id="000";
        [ObservableProperty]
         public static IEnumerable<DataColor>? _colors= new List<DataColor>() ;
@@ -80,7 +83,7 @@ namespace UiDesktopApp2.ViewModels.Pages
             {
                 folderList.Add((folder.FullName, folder.LastWriteTime));
             }
-
+          
             return folderList;
         }
         [ObservableProperty]
@@ -126,17 +129,19 @@ namespace UiDesktopApp2.ViewModels.Pages
 
               
             }
-            try
-            {
+           // 
               
                 var data = new List<DataColor>();
-                var Game_User = GetFoldersWithLastWriteTime($"{File.ReadAllText("GamePath.txt")}\\Documents\\video\\{User_id}\\");
-                foreach (var (Name, LastWriteTime) in Game_User)
+            try
+            {
+                var Game_User1 = GetFoldersWithLastWriteTime($"{File.ReadAllText("GamePath.txt")}\\Documents\\video\\{User_id}\\");
+                foreach (var (Name, LastWriteTime) in Game_User1)
                 {
                     data.Add(new DataColor() { path = Name, time = LastWriteTime.ToString("F"), ischeck = false });
 
                 }
-               Colors = data;
+
+                Colors = data;
 
             }
             catch (Exception)
@@ -145,8 +150,15 @@ namespace UiDesktopApp2.ViewModels.Pages
                   
 
             }
-            
-           
+            if (data.Count() == 0)
+            {
+                Isnull = Visibility.Visible;
+            }
+            else
+            {
+                Isnull = Visibility.Hidden;
+            }
+
         }
 
 

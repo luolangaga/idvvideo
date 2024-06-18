@@ -27,6 +27,8 @@
      
 
  <TextBlock FontSize="30" FontWeight="Bold" Margin="10,10,0,0"></TextBlock>
+        <ui:Image Grid.Row="1" Visibility="{Binding ViewModel.Isnull,Mode=TwoWay}" Height="200" Width="200" Source="pack://application:,,,/Assets/Novideo.png"></ui:Image>
+
         <StackPanel Grid.Row="1">  
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="403"  >
 

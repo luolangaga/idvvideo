@@ -38,6 +38,7 @@
     <None Remove="Assets\Bwiki.png" />
     <None Remove="Assets\CSharp.png" />
     <None Remove="Assets\iconpng.png" />
+    <None Remove="Assets\Novideo.png" />
     <None Remove="Assets\pack_img.jpg" />
     <None Remove="Assets\user.png" />
     <None Remove="Assets\video_img.jpg" />
@@ -55,10 +56,11 @@
     <Resource Include="Assets\Bwiki.png" />
     <Resource Include="Assets\CSharp.png" />
     <Resource Include="Assets\iconpng.png" />
+    <Resource Include="Assets\Novideo.png" />
     <Resource Include="Assets\pack_img.jpg" />
     <Resource Include="Assets\user.png" />
     <Resource Include="Assets\video_img.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\VisualStudio.png" />
     <Resource Include="Assets\wpfui-icon-256.png" />
