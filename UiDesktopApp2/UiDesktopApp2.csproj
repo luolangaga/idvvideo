@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -10,7 +10,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PublishAot>False</PublishAot>
     <PublishTrimmed>False</PublishTrimmed>
-    <AssemblyName>第五人格录像管理器</AssemblyName>
+    <AssemblyName>idvvideo</AssemblyName>
+    <Version />
+    <AssemblyVersion>1.0.9.1</AssemblyVersion>
+    <FileVersion>1.0.9.1</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,6 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="AdvancedSharpAdbClient" Version="3.3.12" />
+    <PackageReference Include="Autoupdater.NET.Official" Version="1.9.0" />
     <PackageReference Include="Flurl" Version="4.0.0" />
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="WPF-UI" Version="3.0.4" />

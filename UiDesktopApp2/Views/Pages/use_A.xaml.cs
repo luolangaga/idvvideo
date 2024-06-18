@@ -33,7 +33,8 @@ namespace UiDesktopApp2.Views.Pages
             new _server { Nmae = "网易官服", PackName = "com.netease.dwrg" },
             new _server { Nmae = "VIVO服", PackName = "com.netease.dwrg5.vivo" },
             new _server {PackName = "com.netease.idv.googleplay",Nmae = "亚服"},
-            new _server {PackName = "com.netease.dwrg.mi",Nmae = "米服"}
+            new _server {PackName = "com.netease.dwrg.mi",Nmae = "米服"},
+            new _server {PackName = "com.netease.dwrg_gongyan_nx2",Nmae = "共研服"}
         });
         class _server
         {
@@ -196,11 +197,21 @@ namespace UiDesktopApp2.Views.Pages
                     return;
                 }
                 string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vfolder",check_v);
+                var select = servers.FirstOrDefault(a => a.Nmae == idv_server.SelectedValue.ToString());
+                if (select.Nmae == "共研服")
+                {
+                    string output1 = await RunADB1($"shell rm -rf /sdcard/Android/data/{select.PackName}/files/NeoX/Documents/video/{idv_id.Text}");
+                    string output = await RunADB1($"push -a {path} /sdcard/Android/data/{select.PackName}/files/NeoX/Documents/video/{idv_id.Text}");
 
-                string output1 = await RunADB1($"shell rm -rf /sdcard/Android/data/{servers.FirstOrDefault(a => a.Nmae == idv_server.SelectedValue.ToString()).PackName}/files/netease/dwrg.common/Documents/video/{idv_id.Text}");
-                string output = await RunADB1($"push -a {path} /sdcard/Android/data/{servers.FirstOrDefault(a=>a.Nmae==idv_server.SelectedValue.ToString()).PackName}/files/netease/dwrg.common/Documents/video/{idv_id.Text}");
-               
-                Showinf(Title = "成功！", cont: $"已成功使用录像{output}，{output1}", button_text: "确定");
+                }
+                else
+                {
+                    string output1 = await RunADB1($"shell rm -rf /sdcard/Android/data/{servers.FirstOrDefault(a => a.Nmae == idv_server.SelectedValue.ToString()).PackName}/files/netease/dwrg.common/Documents/video/{idv_id.Text}");
+                    string output = await RunADB1($"push -a {path} /sdcard/Android/data/{servers.FirstOrDefault(a => a.Nmae == idv_server.SelectedValue.ToString()).PackName}/files/netease/dwrg.common/Documents/video/{idv_id.Text}");
+
+                }
+
+                Showinf(Title = "成功！", cont: $"已成功使用录像", button_text: "确定");
 
                 progress.Visibility = Visibility.Hidden;
             }

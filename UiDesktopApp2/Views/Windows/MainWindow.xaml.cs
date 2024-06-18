@@ -3,6 +3,8 @@ using UiDesktopApp2.ViewModels.Windows;
 using Wpf.Ui;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using AutoUpdaterDotNET;
+using System.Diagnostics;
 
 namespace UiDesktopApp2.Views.Windows
 {
@@ -25,6 +27,9 @@ namespace UiDesktopApp2.Views.Windows
             SetPageService(pageService);
 
             navigationService.SetNavigationControl(RootNavigation);
+            AutoUpdater.AppTitle = "第五人格录像管理器更新";
+         
+            AutoUpdater.Start("https://gitee.com/luolan1/idvvideo/releases/download/xml/AutoUpdaterStarter.xml");
         }
 
         #region INavigationWindow methods
@@ -47,9 +52,16 @@ namespace UiDesktopApp2.Views.Windows
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
+            KillProcess("adb");
             // Make sure that closing this window will begin the process of closing the application.
             Application.Current.Shutdown();
+        }
+        public static void KillProcess(string Pname)
+        {
+            foreach (var v in Process.GetProcessesByName(Pname))
+            {
+                v.Kill();
+            }
         }
 
         INavigationView INavigationWindow.GetNavigation()

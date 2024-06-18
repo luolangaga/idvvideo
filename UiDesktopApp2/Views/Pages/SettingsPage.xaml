@@ -51,7 +51,8 @@ Margin="0,8,0,0"
 Text="{Binding ViewModel.GamePath, Mode=TwoWay}" />
             <Button Grid.Column="1" Command="{Binding ViewModel.OpenFileSelsctCommand, Mode=OneWay}" Margin="20,0,0,0">选择文件夹</Button>
         </Grid>
-        
+        <ui:Button Click="clear_button_Click" x:Name="clear_button" Content="清除缓存"></ui:Button>
+
         <TextBlock
             x:Name="about_text"
             FontSize="20"

@@ -36,6 +36,7 @@ text.Text = "新建录像包";
             {
                 text.Text = "新建录像夹";
             }
+
         }
 
         static void CopyDirectories(string sourcePath, string targetPath)

@@ -50,6 +50,8 @@ namespace UiDesktopApp2
                 services.AddSingleton<DashboardViewModel>();
                 services.AddSingleton<DataPage>();
                 services.AddSingleton<DataViewModel>();
+                services.AddSingleton<Cloudvideo>();
+                services.AddSingleton<CloudViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
             }).Build();

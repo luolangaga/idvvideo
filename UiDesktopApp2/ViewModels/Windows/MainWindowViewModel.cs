@@ -13,7 +13,7 @@ namespace UiDesktopApp2.ViewModels.Windows
         {
             new NavigationViewItem()
             {
-                Content = "我的录像",
+                Content = "录像",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Video24 },
                 TargetPageType = typeof(Views.Pages.DashboardPage)
             },
@@ -22,6 +22,12 @@ namespace UiDesktopApp2.ViewModels.Windows
                 Content = "录像夹",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Folder24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
+            },
+            new NavigationViewItem()
+            {
+                Content = "社区",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.CompassNorthwest24 },
+                TargetPageType = typeof(Views.Pages.Cloudvideo)
             }
         };
 

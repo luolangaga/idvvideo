@@ -41,8 +41,16 @@ namespace UiDesktopApp2.Views.Pages
                
 
             InitializeComponent();
-         //   Task.Run(async () => {
-             download();
+            // 压缩后ZIP文件的路径
+            string packFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack");
+
+            // 确保pack文件夹存在
+            if (!Directory.Exists(packFolderPath))
+            {
+                Directory.CreateDirectory(packFolderPath);
+            }
+            //   Task.Run(async () => {
+            download();
 
             //    });
         }
