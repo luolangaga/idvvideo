@@ -1,4 +1,5 @@
 ﻿using Flurl.Http;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
 using System.IO;
 using System.IO.Compression;
@@ -142,24 +143,37 @@ namespace UiDesktopApp2.ViewModels.Pages
         }
         [ObservableProperty]
         private Visibility _isload = Visibility.Hidden;
-        private void Showinf(string Title, object cont, string button_text)
+        private async void Showinf(string Title, object cont, string button_text)
         {
-            var messageBox = new Wpf.Ui.Controls.MessageBox
+            try
             {
+                new ToastContentBuilder()
+                      .AddArgument("action", "viewConversation")
+    .AddArgument("conversationId", 9813)
+                  .AddText(Title)
+                  .AddText((string)cont)
 
-                Title = Title,
-                Content = cont
-             
-                ,
-                PrimaryButtonText = button_text,
+                  .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+
+            }
+            catch (Exception)
+            {
+                var messageBox = new Wpf.Ui.Controls.MessageBox
+                {
+
+                    Title = Title,
+                    Content = cont
+                              ,
+                    PrimaryButtonText = button_text,
 
 
-                ShowInTaskbar = false,
-                Topmost = false,
-                ResizeMode = ResizeMode.NoResize,
-            };
+                    ShowInTaskbar = false,
+                    Topmost = false,
+                    ResizeMode = ResizeMode.NoResize,
+                };
 
-            messageBox.ShowDialogAsync();
+                await messageBox.ShowDialogAsync();
+            }
         }
 
 

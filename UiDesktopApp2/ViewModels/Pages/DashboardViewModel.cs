@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -158,6 +159,7 @@ namespace UiDesktopApp2.ViewModels.Pages
             {
                 Isnull = Visibility.Hidden;
             }
+           
 
         }
 
@@ -172,9 +174,10 @@ namespace UiDesktopApp2.ViewModels.Pages
                 {
                     Directory.Delete(folder, true);
                 }
-                Showinf("删除成功", $"删除成功！\r\n以下录像被删除:\r\n{string.Join("\r\n",foldersToCompress)}", "确定");
-              
+                               // Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
                 OnRestart();
+                Showinf("删除成功", $"\r\n以下录像被删除\r\n{string.Join(",",foldersToCompress)}", "确定");
+
             }
             catch (Exception ex)
             {
@@ -241,18 +244,27 @@ namespace UiDesktopApp2.ViewModels.Pages
 
 
 
-        private async void Showinf(string Title,object cont,string button_text)
+        private async void Showinf(string Title,string cont,string button_text)
         {
-            var messageBox = new Wpf.Ui.Controls.MessageBox
+
+            try
+            {
+                new ToastContentBuilder()
+                      .AddArgument("action", "viewConversation")
+    .AddArgument("conversationId", 9813)
+                  .AddText(Title)
+                  .AddText(cont)
+                  
+                  .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+
+            }
+            catch (Exception)
+            {
+  var messageBox = new Wpf.Ui.Controls.MessageBox
             {
 
                 Title = Title,
                 Content = cont
-                //new TextBlock
-                //{
-                //    Text = cont,
-                //    TextWrapping = TextWrapping.Wrap,
-                //}
                 ,
                 PrimaryButtonText = button_text,
 
@@ -263,14 +275,14 @@ namespace UiDesktopApp2.ViewModels.Pages
             };
          
             await messageBox.ShowDialogAsync();
+            }
+          
         }
         [RelayCommand]
         private async void Buildpack()
         {
 
             Isload = Visibility.Visible;
-            // 要压缩的文件夹列表
-
             try
             {
                 var messageBox = new Wpf.Ui.Controls.MessageBox
