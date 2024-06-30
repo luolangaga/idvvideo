@@ -1,0 +1,31 @@
+﻿<Page x:Class="UiDesktopApp2.Views.Pages.idvlogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UiDesktopApp2.Views.Pages"
+      mc:Ignorable="d" 
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+ ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+d:DataContext="{d:DesignInstance local:Cloudvideo,
+                                IsDesignTimeCreatable=False}"
+   
+xmlns:gif="http://wpfanimatedgif.codeplex.com"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="idvlogin">
+
+    <Grid>
+      
+        <StackPanel x:Name="Have_downloadpanel">
+            <TextBlock x:Name="ShowMsg" Text="请点击“启动”启动服务" FontSize="40"></TextBlock>
+            <Image  x:Name="successpic" Height="200" Width="200" Visibility="Collapsed"  gif:ImageBehavior.AnimatedSource="pack://application:,,,/Assets/success.gif" ></Image>
+
+            <Button x:Name="start_but" Click="Button_Click_1">启动</Button>
+        </StackPanel>
+        <StackPanel Visibility="Hidden" x:Name="No_downloadpanel">
+            <TextBlock Text="请先下载“idvlogin”" FontSize="40"></TextBlock>
+             <Button Click="Button_Click">下载</Button>
+        </StackPanel>
+    </Grid>
+</Page>

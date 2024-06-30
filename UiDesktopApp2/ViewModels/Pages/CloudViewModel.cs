@@ -1,6 +1,7 @@
 ﻿using Flurl.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -39,7 +40,12 @@ namespace UiDesktopApp2.ViewModels.Pages
         public void download()
         {
           var a=  _cloudvideo.FirstOrDefault(a => a.ischeck == true);
-            Download download = new Download(JsonSerializer.Deserialize<List<string>>(a.Video_url));
+            var uuidN = Guid.NewGuid().ToString("N");
+            // 生成随机的GUID作为文件名
+            string guidFileName = $"{uuidN}.idvpack";
+             Random ran = new Random();
+            string n = ran.Next(9999999).ToString();
+            Download download = new Download(JsonSerializer.Deserialize<List<string>>(a.Video_url), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", guidFileName), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vfolder", $"share{n}"));
             download.Show();
         }
         [RelayCommand]

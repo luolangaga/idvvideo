@@ -53,6 +53,7 @@ namespace UiDesktopApp2
                 services.AddSingleton<Cloudvideo>();
                 services.AddSingleton<CloudViewModel>();
                 services.AddSingleton<SettingsPage>();
+                services.AddSingleton<idvlogin>();
                 services.AddSingleton<SettingsViewModel>();
             }).Build();
 

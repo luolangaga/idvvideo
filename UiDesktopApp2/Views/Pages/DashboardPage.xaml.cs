@@ -86,11 +86,16 @@ namespace UiDesktopApp2.Views.Pages
                 if (NR.Contains(Config.http_url))
                 {
                     var weatherForecast = JsonSerializer.Deserialize<List<string>>(NR);
-                    Download d=new Download(weatherForecast);
-                    d.Show();
+                     var uuidN = Guid.NewGuid().ToString("N");
+                    // 生成随机的GUID作为文件名
+                    string guidFileName = $"{uuidN}.idvpack";
+                    Random ran = new Random();
+                    string n = ran.Next(9999999).ToString();
+                    Download download = new Download(weatherForecast, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", guidFileName), Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vfolder", $"share{n}"));
+                    download.Show();
 
-                   
-                    
+
+
                 }
 
               

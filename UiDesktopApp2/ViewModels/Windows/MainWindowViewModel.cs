@@ -28,6 +28,12 @@ namespace UiDesktopApp2.ViewModels.Windows
                 Content = "社区",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.CompassNorthwest24 },
                 TargetPageType = typeof(Views.Pages.Cloudvideo)
+            },
+            new NavigationViewItem()
+            {
+                Content = "登录器",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.QrCode24 },
+                TargetPageType = typeof(Views.Pages.idvlogin)
             }
         };
 

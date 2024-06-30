@@ -39,10 +39,12 @@ namespace UiDesktopApp2.Views.Windows
 
 
         List<string> Urls;
-        public Download(List<string> _urls)
+        public Download(List<string> _urls,string _savepath,string _zippath)
         {
             InitializeComponent();
             Urls = _urls;
+            Savepath = _savepath;
+            Zippath = _zippath;
             StartDownload();
         }
 
@@ -50,6 +52,8 @@ namespace UiDesktopApp2.Views.Windows
         private HttpClient client = new HttpClient();
          private long totalBytes;
         private string url = "12"; // 目标文档URL，请替换为实际地址
+        private string Savepath ; // 目标文档URL，请替换为实际地址
+        private string Zippath; // 目标文档URL，请替换为实际地址
         private DateTime lastUpdate;
 
 
@@ -66,13 +70,16 @@ namespace UiDesktopApp2.Views.Windows
                     // 生成随机的GUID作为文件名
                     string guidFileName = $"{uuidN}.idvpack";
 
-                 //   await item.DownloadFileAsync(packFolderPath, guidFileName);
-                    string pa = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", guidFileName);
+                    //   await item.DownloadFileAsync(packFolderPath, guidFileName);
+                     string pa = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pack", guidFileName);
+                  //  string pa = Path.Combine(Savepath);
                     string zipFilePath = pa;
                     Random ran = new Random();
                     string n = ran.Next(9999999).ToString();
-                    string destinationFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vfolder", $"share{n}"); // 解压的目标目录
-                     string localPath = zipFilePath; // 替换为你想保存的路径
+                    //  string destinationFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "vfolder", $"share{n}"); // 解压的目标目录
+                    string destinationFolder =Zippath; // 解压的目标目录
+
+                    string localPath = zipFilePath; // 替换为你想保存的路径
                      
 
                     // 确保目标目录存在，如果需要的话创建它
@@ -112,7 +119,7 @@ namespace UiDesktopApp2.Views.Windows
 
                     }
                 }
-                Showinf("成功", $"共导入{a}个录像", "确定");
+                Showinf("成功", $"共下载{a}个文件", "确定");
 
             }
             catch (Exception)
@@ -149,7 +156,7 @@ namespace UiDesktopApp2.Views.Windows
                     // 每秒更新一次速度显示
                     if (DateTime.UtcNow - lastUpdate >= TimeSpan.FromSeconds(1))
                     {
-                        spendtext.Text = $"速度: {CalculateSpeed(totalRead)} bytes/s";
+                        spendtext.Text = $"已下载: {CalculateSpeed(totalRead).ToString("0.00")} MB";
                      
                         lastUpdate = DateTime.UtcNow;
                     }
@@ -164,10 +171,10 @@ namespace UiDesktopApp2.Views.Windows
             procresstext.Text = $"进度: {progress:F2}%";
         }
 
-        private string CalculateSpeed(long totalRead)
+        private Double CalculateSpeed(long totalRead)
         {
             var timeSpan = DateTime.UtcNow - lastUpdate;
-            return (totalRead / timeSpan.TotalSeconds).ToString();
+            return (totalRead / timeSpan.TotalSeconds/ 1048576);
         }
 
         private void Showinf(string Title, object cont, string button_text)
